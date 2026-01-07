@@ -7,7 +7,7 @@ import pygame
 def main():
     pygame.init()
 
-    screen = pygame.display.set_mode((800, 600), pygame.OPENGL | pygame.DOUBLEBUF)
+    screen = pygame.display.set_mode((800, 800), pygame.OPENGL | pygame.DOUBLEBUF)
 
     ctx = moderngl.create_context()
 
@@ -30,7 +30,7 @@ def main():
 
     program = ctx.program(vertex_shader=vs, fragment_shader=fs)
 
-    vao = ctx.vertex_array(program, [(vbo, "2f 3f", "a_pos", "a_color")])
+    vao = ctx.vertex_array(program, vbo, "a_pos", "a_color")
 
     running = True
     while running:
